@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fdd598bc02396d3df4b9a622e6899078";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXEHV2KQ9G"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NXEHV2KQ9G');
+    </script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Tokenizer Needs Post-Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .author-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .author-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .author-section p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        .icon-links {
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .icon-links i {
+            margin-right: 10px;
+        }
+        .icon-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .icon-links a:hover {
+            text-decoration: underline;
+        }
+        .content-section {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .content-section {
+            background-color: #f0f0f0;
+        }
+        .content-section2 {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .content-section2{
+            background-color: #e0e0e0;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .visualization img {
+            width: 48%;
+            margin-bottom: 20px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #444;
+            color: #fff;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .bib-entry {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            overflow: auto; /* Allow scrolling */
+            max-height: 150px; /* Set a maximum height */
+            white-space: pre; /* Preserve whitespace */
+            font-family: monospace; /* Use monospace font for code */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Tokenizer Needs Post-Training</h1>
+    </header>
+
+    <div class="container">
+        <div class="author-section">
+            <h3>
+            <a href="https://github.com/qiuk2" target="_blank">Kai Qiu*</a>,
+            <a href="https://lxa9867.github.io/" target="_blank">Xiang Li*</a>,
+            <a href="https://scholar.google.com/citations?hl=en&user=tktqkhwAAAAJ&view_op=list_works" target="_blank">Hao Chen</a>,
+            <a href="https://research.adobe.com/person/jason-kuen/" target="_blank">Jason Kuen</a>,
+            <a href="https://scholar.google.com/citations?user=3Ifn2DoAAAAJ&hl=en" target="_blank">Xiaohao Xu</a>,
+            <a href="https://gujiuxiang.com/" target="_blank">Jiuxiang Gu</a>,
+            <a href="placeholder" target="_blank">Yinyi Luo</a>,
+            <a href="http://cvis.cs.cmu.edu/cvis/people.html" target="_blank">Bhiksha Raj</a>,
+            <a href="https://sites.google.com/site/zhelin625/home" target="_blank">Zhe Lin</a>,
+            <a href="https://www.ece.cmu.edu/directory/bios/savvides-marios.html" target="_blank">Marios Savvides</a>
+            </h3>
+            <h3>Carnegie Mellon University, Adobe Research, University of Michigan</h3>
+            <div class="icon-links">
+                <a href="https://github.com/qiuk2/RobusTok" target="_blank">
+                    <i class="fab fa-github"></i>GitHub
+                </a>
+                <a href="https://arxiv.org/abs/2509.xxx" target="_blank">
+                    <i class="fas fa-file-alt"></i>Arxiv
+                </a>
+            </div>
+        </div>
+
+        <div class="content-section">
+<!--            <h2>Teaser</h2>-->
+            <img src="assets/teaser.png" alt="Teaser Image">
+        </div>
+
+        <div class="content-section2">
+            <h2>Abstract</h2>
+            <p>Recent image generative models typically capture the image distribution in a pre-constructed latent space, relying on a frozen image tokenizer. However, there exists a significant discrepancy between the reconstruction and generation distribution, where
+                current tokenizers only prioritize the reconstruction task that happens before generative training without considering the generation errors during sampling.
+                In this paper, we comprehensively analyze the reason for this discrepancy in a discrete latent space, and, from which, we propose a novel tokenizer training scheme including both main-training and post-training, focusing on improving latent space construction and decoding respectively. 
+                During the main training, a latent perturbation strategy is proposed to simulate sampling noises, \ie, the unexpected tokens generated in generative inference.
+                Specifically, we propose a plug-and-play tokenizer training scheme, which significantly enhances the robustness of tokenizer, thus boosting the generation quality and convergence speed, and a novel tokenizer evaluation metric, \ie, pFID, which successfully correlates the tokenizer performance to generation quality. 
+                During post-training, we further optimize the tokenizer decoder regarding a well-trained generative model to mitigate the distribution difference between generated and reconstructed tokens.
+                With a $\sim$400M generator, a discrete tokenizer trained with our proposed main training achieves a notable 1.60 gFID and further obtains 1.36 gFID with the additional post-training. 
+                Further experiments are conducted to broadly validate the effectiveness of our post-training strategy on off-the-shelf discrete and continuous tokenizers, coupled with autoregressive and diffusion-based generators.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Main Training</h2>
+            <img src="assets/pipeline.png" alt="Pipeline Image">
+            <p>
+                During tokenizer training, we apply latent perturbation to enhance its robustness. We apply perturbation after semantic regularization to preserve clear semantics in the discrete tokens to maximize the reconstruction capability. Within a batch of images, we randomly choose &beta; of them to add perturbation. To apply perturbation to each selected image, we randomly choose &alpha;&times;H&times;W tokens and then calculate the top-&delta; nearest neighbors to those tokens within the learned codebook. 
+                The final perturbation is applied by randomly replacing the original token with one of its top-&delta; nearest neighbors.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Post-Training</h2>
+            <img src="assets/ft-diff.png" alt="post-training difference">
+            <p>
+                In this stage, we freeze the encoder and quantizer, and fine-tune only the decoder. To stabilize adversarial training, the pretrained discriminator is reused directly and optimization continues with the same loss combination. Concretely, generated images are re-encoded and paired with their corresponding real images, allowing the decoder to learn reconstruction from AR generated latents space.
+                Above is the visualization of 256 &times 256 image generation before (top) and after (bottom) post-training. Three improvements are observed: (a) OOD mitigation, (b) color fidelity, and (c) detail refinement.
+            </p>
+        </div>
+
+
+        <div class="content-section">
+            <h2> Visualization</h2>
+            <img src="assets/visualization.png" alt="Class-conditional">
+        </div>
+
+        <div class="content-section">
+            <h2>BibTex</h2>
+            <div class="bib-entry">
+                coming soon
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>
