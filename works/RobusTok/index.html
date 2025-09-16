@@ -195,17 +195,43 @@
 
         <div class="content-section">
             <h2>Post-Training</h2>
-            <img src="assets/ft-diff.png" alt="post-training difference">
+            <img src="assets/data-vis.png" alt="post-training difference">
             <p>
-                In this stage, we freeze the encoder and quantizer, and fine-tune only the decoder. To stabilize adversarial training, the pretrained discriminator is reused directly and optimization continues with the same loss combination. Concretely, generated images are re-encoded and paired with their corresponding real images, allowing the decoder to learn reconstruction from AR generated latents space.
-                Above is the visualization of 256 &times 256 image generation before (top) and after (bottom) post-training. Three improvements are observed: (a) OOD mitigation, (b) color fidelity, and (c) detail refinement.
+                In this stage, we freeze the encoder and quantizer, and fine-tune only the decoder. To stabilize adversarial training, the pretrained discriminator is reused directly and optimization continues with the same loss combination. 
+                Inspired by the smooth transition induced by the teacher forcing, we introduce the preservation ratio &sigma;, which interpolates between reconstruction and generation by controlling how much information from the original image is retained in the generated latents.
+                After that, generated images are re-encoded and paired with their corresponding real images, allowing the decoder to learn reconstruction from AR generated latents space.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Main Result</h2>
+            <img src="assets/main-result.png" alt="main result">
+            <p>
+                System-level performance comparison on class-conditional ImageNet 256x256. &uparrow; and &downarrow; indicate that higher or lower values are better, respectively.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Broad Applicability of Post-Training</h2>
+            <img src="assets/pt-effect.png" alt="pt effectiveness">
+            <p>
+                System-level comparison on class-conditional ImageNet 256 &times;256. “con.” / “disc.” denote
+                continuous / discrete latent types. &uparrow;/ &downarrow;indicate higher / lower is better. “P.T.” represents our
+                proposed tokenizer post-training strategy.
             </p>
         </div>
 
 
         <div class="content-section">
             <h2> Visualization</h2>
-            <img src="assets/visualization.png" alt="Class-conditional">
+            <img src="assets/ft-diff.png" alt="pt-diff">
+            <p>
+                Visualization of 256 &times; 256 image generation before (top) and after (bottom) post-training. Three improvements are observed: (a) OOD mitigation, (b) color fidelity, and (c) detail refinement.
+            </p>
+            <img src="assets/visualization.png" alt="vis">
+            <p>
+                Visualization of 256 &times; 256 image within ImageNet class by our RobusTok.
+            </p>
         </div>
 
         <div class="content-section">
@@ -217,7 +243,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
 
 
